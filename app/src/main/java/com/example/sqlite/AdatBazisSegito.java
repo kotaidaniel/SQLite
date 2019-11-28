@@ -1,5 +1,6 @@
 package com.example.sqlite;
 
+import android.app.ActionBar;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -54,6 +55,19 @@ public class AdatBazisSegito extends SQLiteOpenHelper {
         SQLiteDatabase database = this.getWritableDatabase();
         Cursor eredmeny = database.rawQuery("SELECT * from " + TABLE_NAME, null);
         return eredmeny;
+    }
 
+    public long adatTorles(int id){
+        SQLiteDatabase database = this.getWritableDatabase();
+        return database.delete(TABLE_NAME, COL_1 + " = ?", new String[] {String.valueOf(id)});
+    }
+
+    public long adatModosit(String id, String keresztnev, String vezeteknev, String jegy){
+        SQLiteDatabase database = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COL_2, keresztnev);
+        values.put(COL_3, vezeteknev);
+        values.put(COL_4, jegy);
+        return database.update(TABLE_NAME, values, COL_1 + " = ? ", new String[]{id});
     }
 }
