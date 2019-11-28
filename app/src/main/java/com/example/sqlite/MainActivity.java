@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private Button lekerdezes;
     private Button rogzites;
     private Button torles;
+    private Button modositas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,15 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+        modositas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Main4Activity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
     }
 
     public void init(){
@@ -55,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         lekerdezes = findViewById(R.id.idBtn2);
         rogzites = findViewById(R.id.idBtn3);
         torles = findViewById(R.id.idBtn4);
+        modositas = findViewById(R.id.idModositas);
 
     }
 
